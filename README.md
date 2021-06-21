@@ -2,6 +2,8 @@
 
 ## How is sequence diagram generated?
 
+[Heroku Web App (Probably working)](https://barely-diagram.herokuapp.com/)
+
 Diagram is generated purely using Graphics2D library in Java 8. The server takes the request body as input.
 Each object in sequence can be imagined as vertex in a directed graph, and each message line as a
 weighted edge, where weight being the message string itself. An adjacency list representation will suffice.
