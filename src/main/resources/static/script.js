@@ -30,7 +30,7 @@ let defaultJson = {
 
 let stringified = JSON.stringify(defaultJson, null, 2);
 let textarea = document.getElementById('code');
-let url = "http://localhost:8081/diagram";
+let url = "https://barely-diagram.herokuapp.com/diagram";
 textarea.value = stringified;
 
 let editor = CodeMirror.fromTextArea(textarea, {
