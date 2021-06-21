@@ -1,0 +1,84 @@
+{
+  "sequence": [
+    {
+      "from":"ZPX",
+      "to": "ZPS",
+      "text": "ZPO"
+    },
+    {
+      "from":"ZPS",
+      "to": "ZStation",
+      "text": "POST /find"
+    },
+    {
+      "from":"ZStation",
+      "to": "ZMA",
+      "text": "POST /find"
+    },
+    {
+      "from":"ZMA",
+      "to": "ZMAPlugin",
+      "text": "findMethods"
+    },
+    {
+      "from":"ZMAPlugin",
+      "to": "ZMA",
+      "text": "Native Search"
+    },
+    {
+      "from":"ZMA",
+      "to": "LegacyPlugin",
+      "text": "findMethods"
+    },
+    {
+      "from":"LegacyPlugin",
+      "to": "ZCore",
+      "text": "GetZOptions"
+    },
+    {
+      "from":"ZCore",
+      "to": "ZOS",
+      "text": "GetEligibleZ"
+    },
+    {
+      "from":"ZOS",
+      "to": "ZCore",
+      "text": "Z ids"
+    },
+    {
+      "from":"ZCore",
+      "to": "LegacyPlugin",
+      "text": "LPOs"
+    },
+    {
+      "from":"LegacyPlugin",
+      "to": "LegacyPlugin",
+      "text": "Translate LPO to Native method"
+    },
+    {
+      "from":"LegacyPlugin",
+      "to": "ZMA",
+      "text": "Native method"
+    },
+    {
+      "from":"ZMA",
+      "to": "ZStation",
+      "text": "Native method"
+    },
+    {
+      "from":"ZStation",
+      "to": "ZPS",
+      "text": "Native method"
+    },
+    {
+      "from":"ZPS",
+      "to": "ZPS",
+      "text": "Convert ZPM back to LPO"
+    },
+    {
+      "from":"ZPS",
+      "to": "ZPX",
+      "text": "Native method + LPO"
+    }
+  ]
+}

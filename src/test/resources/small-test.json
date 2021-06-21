@@ -1,0 +1,29 @@
+{
+  "sequence": [
+    {
+      "from": "A",
+      "to": "B",
+      "text": "From A to B"
+    },
+    {
+      "from": "B",
+      "to": "D",
+      "text": "From B to D"
+    },
+    {
+      "from": "C",
+      "to": "D",
+      "text": "From C to D"
+    },
+    {
+      "from": "D",
+      "to": "D",
+      "text": "From D to D"
+    },
+    {
+      "from": "D",
+      "to": "A",
+      "text": "From D to A"
+    }
+  ]
+}

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+    <meta charset="UTF-8">
+    <title>Barely Working Diagrams</title>
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,400" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.30.0/codemirror.css'>
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.30.0/theme/eclipse.css'>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.30.0/addon/lint/lint.css'><link rel="stylesheet" href="./style.css">
+</head>
+<body>
+<div class="jumbotron text-center">
+    <h1>Barely Functioning Web Sequence Diagrams</h1>
+    <p>Made with frustration by Kartikey</p>
+</div>
+<div class="container">
+    <div class="row mt-2">
+        <div class="col mt-2">
+            <div class="col text-center mt-2">
+                <button type="button" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#exampleModal">Know More</button>
+            </div>
+            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h2 class="modal-title" id="exampleModalLabel">How is sequence diagram generated?</h2>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <p>Diagram is generated purely using Graphics2D library in Java 8. The server takes the request body as input.
+                                Each object in sequence can be imagined as a vertex in a directed graph, and each message line as a
+                                weighted edge, where weight being the message string itself. An adjacency list representation will suffice.</p>
+                            <p>As we get the sequence of edges in a kind-of sorted order by user. Each object as detected in a simple traversal
+                                is placed in an array let&#39;s say X, which determines their placing in the final diagram.</p>
+                            <p>Now for each vertex(object) in X, it&#39;s pixel location (x, y) is adjusted/calculated on the basis of the message symbol&#39;s
+                                pixel message/edge string length it can be either inbound or outbound edge, only those edges are considered whose vertices
+                                have an index smaller than current vertex in X. </p>
+                            <p>This is done so to prevent overlap between edges weight, after adjusting and estimating each objects pixel location, then comes the actual drawing part
+                                where each object (upper and lower box) + activation lines are drawn first. Then we take the as it is sequence of messages that we get from user
+                                and start drawing them with a constant offset. One also needs to take care of self loop edges too.</p>
+                            <h2 id="any-findings-">Any findings?</h2>
+                            <p>I ended up rendering the image using 2 libraries - Graphics2D, Processing, but Graphics2D for this usecase I found to be better suited.
+                                Various kind of message symbols, objects, activation can be inculcated into it. But building option loop symbol or alternative symbol with recursive nature
+                                and adjusting pixels accordingly would be an interesting challenge and that is why these are barely functioning web sequence diagrams :)</p>
+                            <h2 id="what-technology-is-used-">What technology is used?</h2>
+                            <p>Frontend - Bootstrap 5, jQuery</p>
+                            <p>Backend - Spring Boot</p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row mt-2">
+        <textarea id="code"></textarea>
+    </div>
+    <div class="row mt-2">
+        <div class="col text-center mt-2">
+            <button id="btnSubmit" class="btn btn-success">Submit</button>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col text-center mt-2">
+            <img class="img-responsive" id="diagram" src="" alt="Sequence Diagram" style="display:none"/>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col mt-2">
+            <pre id="errorBox" class="bg-danger bg-gradient text-white"></pre>
+        </div>
+    </div>
+</div>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.30.0/codemirror.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.30.0/mode/javascript/javascript.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.30.0/addon/selection/active-line.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.30.0/addon/lint/lint.js'></script>
+<script src='https://rawgithub.com/zaach/jsonlint/79b553fb65c192add9066da64043458981b3972b/lib/jsonlint.js'></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.30.0/addon/lint/json-lint.js'></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+<script  src="./script.js"></script>
+</body>
+</html>
